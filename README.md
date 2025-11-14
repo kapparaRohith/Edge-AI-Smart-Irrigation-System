@@ -74,3 +74,44 @@ MONITORING ENDPOINTS:
   * Published every 10 cycles via MQTT
   * Includes uptime, predictions, water savings
 """
+ 
+    """
+    HARDWARE SETUP NOTES:
+    
+    Required Components:
+    1. Raspberry Pi 4 (4GB recommended) or ESP32
+    2. Sensors:
+       - Capacitive Soil Moisture Sensor v1.2
+       - DHT22 (Temperature & Humidity)
+       - BH1750 (Light Intensity)
+       - Tipping Bucket Rain Gauge
+       - Anemometer (Wind Speed)
+       - Analog pH Sensor
+    
+    3. Actuators:
+       - 12V Water Pump
+       - Solenoid Valve
+       - Relay Module (2-channel)
+    
+    4. Additional:
+       - MCP3008 ADC (for analog sensors)
+       - 12V Power Supply
+       - Breadboard & Jumper Wires
+    
+    Pin Connections (Raspberry Pi):
+    - GPIO 17: Soil Moisture (via ADC)
+    - GPIO 27: DHT22 Data
+    - GPIO 22: Rain Sensor
+    - GPIO 18: Pump Relay
+    - GPIO 23: Valve Relay
+    - SPI: MCP3008 ADC
+    - I2C: BH1750 Light Sensor
+    
+    Software Requirements:
+    pip install RPi.GPIO Adafruit-DHT paho-mqtt spidev smbus2
+    
+    MQTT Broker Setup:
+    sudo apt-get install mosquitto mosquitto-clients
+    sudo systemctl enable mosquitto
+    sudo systemctl start mosquitto
+    """
